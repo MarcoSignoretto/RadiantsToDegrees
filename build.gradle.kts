@@ -6,5 +6,19 @@ plugins {
 }
 
 tasks.create<Delete>("clean") {
-    delete = setOf(rootProject.buildDir)
+    delete = setOf(
+        rootProject.buildDir,
+        "utils/libradiantstodegrees.dylib",
+    )
+}
+
+val localNativeBuild = tasks.create<Exec>("localNativeBuild") {
+    commandLine = listOf("sh", "./scripts/buildLocalNativeLib.sh")
+}
+
+project.afterEvaluate {
+    // Run CMake and  before tests to build the library
+    getTasksByName("testDebugUnitTest", true).forEach {
+        it.dependsOn(localNativeBuild)
+    }
 }
