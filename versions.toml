@@ -1,0 +1,12 @@
+[versions]
+kotlin = "1.6.10"
+compose = "1.1.0"
+composeActivity = "1.4.0"
+
+[libraries]
+androidx-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
+androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
+androidx-compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
+androidx-compose-material = { module = "androidx.compose.material:material", version.ref = "compose" }
+androidx-compose-ui-junit = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "compose" }
+androidx-compose-activity = { module = "androidx.activity:activity-compose", version.ref = "composeActivity" }
